@@ -1,0 +1,569 @@
+<uiml xmlns="http://docs.oasis-open.org/uiml/ns/uiml4.0">
+<peers>
+<presentation base=" HTML_4.01frameset_Harmonia_0.1 "/>
+</peers>
+<interface>
+<structure>
+<part class="application" id="a4tv_app">
+<part class="DIV" id="main">
+<part class="DIV" id="video"/>
+<part class="DIV" id="select-view">
+<part class="DIV" id="left-panel">
+<part class="DIV" id="logo"/>
+<part class="DIV" id="category-list-scroller">
+<part class="DIV" id="category-list">
+<part class="DIV" id="a4tv_DIV_8"/>
+<part class="DIV" id="a4tv_DIV_9"/>
+<part class="DIV" id="a4tv_DIV_10"/>
+<part class="DIV" id="a4tv_DIV_11"/>
+<part class="DIV" id="a4tv_DIV_12"/>
+<part class="DIV" id="a4tv_DIV_13"/>
+</part>
+</part>
+</part>
+<part class="DIV" id="info-panel">
+<part class="DIV" id="info-panel-title"/>
+<part class="DIV" id="info-panel-desc"/>
+</part>
+<part class="DIV" id="channel-panel">
+<part class="DIV" id="a4tv_DIV_31">
+<part class="DIV" id="a4tv_DIV_32">
+<part class="DIV" id="a4tv_DIV_33"/>
+<part class="DIV" id="a4tv_DIV_35"/>
+<part class="DIV" id="a4tv_DIV_36"/>
+<part class="IMG" id="a4tv_IMG_107"/>
+</part>
+<part class="DIV" id="a4tv_DIV_37">
+<part class="DIV" id="a4tv_DIV_38"/>
+<part class="DIV" id="a4tv_DIV_40"/>
+<part class="DIV" id="a4tv_DIV_41"/>
+<part class="IMG" id="a4tv_IMG_108"/>
+</part>
+<part class="DIV" id="a4tv_DIV_42">
+<part class="DIV" id="a4tv_DIV_43"/>
+<part class="DIV" id="a4tv_DIV_45"/>
+<part class="DIV" id="a4tv_DIV_46"/>
+<part class="IMG" id="a4tv_IMG_109"/>
+</part>
+<part class="DIV" id="a4tv_DIV_47">
+<part class="DIV" id="a4tv_DIV_48"/>
+<part class="DIV" id="a4tv_DIV_50"/>
+<part class="DIV" id="a4tv_DIV_51"/>
+<part class="IMG" id="a4tv_IMG_110"/>
+</part>
+</part>
+</part>
+<part class="IMG" id="dm_logo"/>
+</part>
+<part class="DIV" id="notifications"/>
+</part>
+</part>
+</structure>
+<style>
+<property part-name="a4tv_DIV_8" name="text">Exit</property>
+<property part-name="a4tv_DIV_8" name="target_up">Sports</property>
+<property part-name="a4tv_DIV_8" name="target_down">Settings</property>
+<property part-name="a4tv_DIV_9" name="text">Settings</property>
+<property part-name="a4tv_DIV_9" name="target_up">Exit</property>
+<property part-name="a4tv_DIV_9" name="target_down">Search</property>
+<property part-name="a4tv_DIV_10" name="text">Search</property>
+<property part-name="a4tv_DIV_10" name="target_up">Settings</property>
+<property part-name="a4tv_DIV_10" name="target_down">Most Recent</property>
+<property part-name="a4tv_DIV_11" name="text">Most Recent</property>
+<property part-name="a4tv_DIV_11" name="target_up">Search</property>
+<property part-name="a4tv_DIV_11" name="target_down">Most Viewed</property>
+<property part-name="a4tv_DIV_12" name="text">Most Viewed</property>
+<property part-name="a4tv_DIV_12" name="target_up">Most Recent</property>
+<property part-name="a4tv_DIV_12" name="target_down">Most Popular Videos</property>
+<property part-name="a4tv_DIV_13" name="text">Most Popular Videos</property>
+<property part-name="a4tv_DIV_13" name="target_up">Most Viewed</property>
+<property part-name="a4tv_DIV_13" name="target_down">60 Seconds of Shame</property>
+<property part-name="a4tv_DIV_13" name="target_down">60 Seconds of Shame</property>
+<property part-name="a4tv_DIV_33" name="text">60 Seconds You ll Never Get Back  Athletes that are Horr   </property>
+<property part-name="a4tv_DIV_33" name="target_right">60 Seconds You ll Never Get Back  Great Athletes Who    </property>
+<property part-name="a4tv_DIV_38" name="text">60 Seconds You ll Never Get Back  Great Athletes Who    </property>
+<property part-name="a4tv_DIV_38" name="target_left">60 Seconds You ll Never Get Back  Athletes that are Horr   </property>
+<property part-name="a4tv_DIV_38" name="target_right">60 Seconds You ll Never Get Back  Great Athletes That    </property>
+<property part-name="a4tv_DIV_43" name="text">60 Seconds You ll Never Get Back  Great Athletes That    </property>
+<property part-name="a4tv_DIV_43" name="target_left">60 Seconds You ll Never Get Back  Great Athletes Who    </property>
+<property part-name="a4tv_DIV_43" name="target_right">60 Seconds You ll Never Get Back  Great Athletes That    </property>
+<property part-name="a4tv_DIV_48" name="text">60 Seconds You ll Never Get Back  Great Athletes That    </property>
+<property part-name="a4tv_DIV_48" name="target_left">60 Seconds You ll Never Get Back  Great Athletes That    </property>
+<property part-name="a4tv_DIV_48" name="target_right">
+<property part-name="a4tv_DIV_48" name="text">
+<property part-name="a4tv_DIV_48" name="text">60 Seconds You ll Never Get Back  Who Knew    </property>
+</property>
+</property>
+</style>
+</interface>
+</uiml>
+
+ <uiml xmlns="http://docs.oasis-open.org/uiml/ns/uiml4.0">
+ <peers>
+<presentation base=" HTML_4.01frameset_Harmonia_0.1 "/>
+ </peers>
+<interface>
+<structure>
+ <part class="application" id="a4tv_app">
+ <part class="DIV" id="main">
+ <part class="DIV" id="select-view">
+ <part class="DIV" id="a4tv_DIV_2"/>
+ <part class="DIV" id="left-panel">
+ <part class="DIV" id="logo"/>
+ <part class="DIV" id="category-list-scroller">
+ <part class="DIV" id="category-list">
+ <part class="DIV" id="a4tv_DIV_7"/>
+ <part class="DIV" id="a4tv_DIV_8"/>
+ <part class="DIV" id="a4tv_DIV_9"/>
+ <part class="DIV" id="a4tv_DIV_10"/>
+ </part>
+</part>
+</part>
+ <part class="DIV" id="a4tv_DIV_11"/>
+ <part class="DIV" id="info-panel">
+ <part class="DIV" id="info-panel-title"/>
+ <part class="DIV" id="info-panel-desc"/>
+ </part>
+<part class="DIV" id="channel-panel">
+ <part class="DIV" id="a4tv_DIV_16">
+ <part class="DIV" id="a4tv_DIV_17">
+ <part class="DIV" id="a4tv_DIV_18"/>
+ <part class="DIV" id="a4tv_DIV_20"/>
+ <part class="DIV" id="a4tv_DIV_21"/>
+ <part class="IMG" id="a4tv_IMG_76"/>
+ </part>
+<part class="DIV" id="a4tv_DIV_22">
+ <part class="DIV" id="a4tv_DIV_23"/>
+ <part class="DIV" id="a4tv_DIV_25"/>
+ <part class="DIV" id="a4tv_DIV_26"/>
+ <part class="IMG" id="a4tv_IMG_77"/>
+ </part>
+<part class="DIV" id="a4tv_DIV_27">
+ <part class="DIV" id="a4tv_DIV_28"/>
+ <part class="DIV" id="a4tv_DIV_30"/>
+ <part class="DIV" id="a4tv_DIV_31"/>
+ <part class="IMG" id="a4tv_IMG_78"/>
+ </part>
+<part class="DIV" id="a4tv_DIV_32">
+ <part class="DIV" id="a4tv_DIV_33"/>
+ <part class="DIV" id="a4tv_DIV_35"/>
+ <part class="DIV" id="a4tv_DIV_36"/>
+ <part class="IMG" id="a4tv_IMG_79"/>
+ </part>
+<part class="DIV" id="a4tv_DIV_37">
+ <part class="DIV" id="a4tv_DIV_38"/>
+ <part class="IMG" id="a4tv_IMG_80"/>
+ </part>
+</part>
+</part>
+</part>
+ <part class="DIV" id="notifications"/>
+ <part class="VIDEO" id="video"/>
+ </part>
+</part>
+</structure>
+ <style>
+ <property part-name="a4tv_DIV_8" name="target_up">a4tv_DIV_11</property>
+ <property part-name="a4tv_DIV_8" name="target_down">a4tv_DIV_7</property>
+ <property part-name="a4tv_DIV_9" name="target_up">a4tv_DIV_8</property>
+ <property part-name="a4tv_DIV_9" name="target_down">a4tv_DIV_10</property>
+ <property part-name="a4tv_DIV_10" name="target_up">a4tv_DIV_9</property>
+ <property part-name="a4tv_DIV_10" name="target_down">a4tv_DIV_11</property>
+ <property part-name="a4tv_DIV_11" name="target_up">a4tv_DIV_10</property>
+ <property part-name="a4tv_DIV_11" name="target_down">a4tv_DIV_8</property>
+ <property part-name="a4tv_DIV_18" name="target_right">a4tv_DIV_24</property>
+ <property part-name="a4tv_DIV_24" name="target_right">a4tv_DIV_30</property>
+ <property part-name="a4tv_DIV_30" name="target_right">a4tv_DIV_36</property>
+ <property part-name="a4tv_DIV_36" name="target_right">a4tv_DIV_42</property>
+ <property part-name="a4tv_DIV_42" name="target_right">a4tv_DIV_48</property>
+ <property part-name="a4tv_DIV_48" name="target_right">a4tv_DIV_54</property>
+ <property part-name="a4tv_DIV_54" name="target_right">a4tv_DIV_60</property>
+ <property part-name="a4tv_DIV_60" name="target_right">a4tv_DIV_66</property>
+ <property part-name="a4tv_DIV_66" name="target_right">a4tv_DIV_72</property>
+ <property part-name="a4tv_DIV_72" name="target_right">a4tv_DIV_78</property>
+ <property part-name="a4tv_DIV_78" name="target_right">a4tv_DIV_84</property>
+ <property part-name="a4tv_DIV_84" name="target_right">a4tv_DIV_90</property>
+ <property part-name="a4tv_DIV_90" name="target_right">a4tv_DIV_96</property>
+ <property part-name="a4tv_DIV_96" name="target_right">a4tv_DIV_102</property>
+ <property part-name="a4tv_DIV_102" name="target_right">a4tv_DIV_108</property>
+ <property part-name="a4tv_DIV_108" name="target_right">a4tv_DIV_114</property>
+ <property part-name="a4tv_DIV_114" name="target_right">a4tv_DIV_120</property>
+ <property part-name="a4tv_DIV_120" name="target_right">a4tv_DIV_126</property>
+ <property part-name="a4tv_DIV_126" name="target_right">a4tv_DIV_130</property> 
+ </style>
+</interface>
+</uiml>
+
+
+ <style>
+ <property part-name="a4tv_DIV_8" name="target_up">a4tv_DIV_11</property>
+ <property part-name="a4tv_DIV_8" name="target_down">a4tv_DIV_7</property>
+ <property part-name="a4tv_DIV_9" name="target_up">a4tv_DIV_8</property>
+ <property part-name="a4tv_DIV_9" name="target_down">a4tv_DIV_10</property>
+ <property part-name="a4tv_DIV_10" name="target_up">a4tv_DIV_9</property>
+ <property part-name="a4tv_DIV_10" name="target_down">a4tv_DIV_11</property>
+ <property part-name="a4tv_DIV_11" name="target_up">a4tv_DIV_10</property>
+ <property part-name="a4tv_DIV_11" name="target_down">a4tv_DIV_8</property>
+ <property part-name="a4tv_DIV_24" name="target_right">a4tv_DIV_28</property>
+ <property part-name="a4tv_DIV_28" name="target_right">a4tv_DIV_32</property>
+ </style>
+</interface>
+</uiml>
+
+
+
+<uiml xmlns="http://docs.oasis-open.org/uiml/ns/uiml4.0">
+<peers>
+<presentation base=" HTML_4.01frameset_Harmonia_0.1 "/>
+</peers>
+<interface>
+<structure>
+<part class="application" id="a4tv_app">
+<part class="DIV" id="main">
+<part class="VIDEO" id="video"/>
+<part class="DIV" id="select-view">
+<part class="DIV" id="a4tv_DIV_3"/>
+<part class="DIV" id="left-panel">
+<part class="DIV" id="logo"/>
+<part class="DIV" id="category-list-scroller">
+<part class="DIV" id="category-list">
+<part class="DIV" id="a4tv_DIV_8">
+<part class="SPAN" id="a4tv_SPAN_9"/>
+</part>
+<part class="DIV" id="a4tv_DIV_9">
+<part class="SPAN" id="a4tv_SPAN_11"/>
+</part>
+<part class="DIV" id="a4tv_DIV_10">
+<part class="SPAN" id="a4tv_SPAN_13"/>
+</part>
+<part class="DIV" id="a4tv_DIV_11">
+<part class="SPAN" id="a4tv_SPAN_15"/>
+</part>
+</part>
+</part>
+</part>
+<part class="DIV" id="a4tv_DIV_12"/>
+<part class="DIV" id="info-panel">
+<part class="DIV" id="info-panel-title"/>
+<part class="DIV" id="info-panel-desc"/>
+</part>
+<part class="DIV" id="channel-panel">
+<part class="DIV" id="a4tv_DIV_23">
+<part class="DIV" id="a4tv_DIV_24">
+<part class="DIV" id="a4tv_DIV_25">
+<part class="SPAN" id="a4tv_SPAN_26"/>
+<part class="SPAN" id="a4tv_SPAN_27"/>
+</part>
+</part>
+<part class="DIV" id="a4tv_DIV_28">
+<part class="DIV" id="a4tv_DIV_29">
+<part class="SPAN" id="a4tv_SPAN_30"/>
+<part class="SPAN" id="a4tv_SPAN_31"/>
+</part>
+</part>
+<part class="DIV" id="a4tv_DIV_32">
+<part class="DIV" id="a4tv_DIV_33">
+<part class="SPAN" id="a4tv_SPAN_34"/>
+<part class="SPAN" id="a4tv_SPAN_35"/>
+</part>
+</part>
+</part>
+</part>
+</part>
+<part class="DIV" id="notifications"/>
+</part>
+</part>
+</structure>
+<style>
+<property part-name="main" name="type">Section</property>
+<property part-name="main" name="depth">0</property>
+<property part-name="video" name="type">VIDEO</property>
+<property part-name="video" name="depth">1</property>
+<property part-name="select-view" name="type">Section</property>
+<property part-name="select-view" name="depth">1</property>
+<property part-name="a4tv_DIV_3" name="type">Section</property>
+<property part-name="a4tv_DIV_3" name="depth">2</property>
+<property part-name="left-panel" name="type">Section</property>
+<property part-name="left-panel" name="depth">2</property>
+<property part-name="logo" name="type">Section</property>
+<property part-name="logo" name="depth">3</property>
+<property part-name="category-list-scroller" name="type">Section</property>
+<property part-name="category-list-scroller" name="depth">3</property>
+<property part-name="category-list" name="type">Section</property>
+<property part-name="category-list" name="depth">4</property>
+<property part-name="a4tv_DIV_8" name="type">Section</property>
+<property part-name="a4tv_DIV_8" name="depth">5</property>
+<property part-name="a4tv_SPAN_9" name="text">Sair</property>
+<property part-name="a4tv_SPAN_9" name="type">SPAN</property>
+<property part-name="a4tv_SPAN_9" name="depth">6</property>
+<property part-name="a4tv_DIV_9" name="type">Section</property>
+<property part-name="a4tv_DIV_9" name="focused">true</property>
+<property part-name="a4tv_DIV_9" name="depth">5</property>
+<property part-name="a4tv_SPAN_11" name="text">Configurações</property>
+<property part-name="a4tv_SPAN_11" name="type">SPAN</property>
+<property part-name="a4tv_SPAN_11" name="depth">6</property>
+<property part-name="a4tv_DIV_10" name="type">Section</property>
+<property part-name="a4tv_DIV_10" name="depth">5</property>
+<property part-name="a4tv_SPAN_13" name="text">Busca</property>
+<property part-name="a4tv_SPAN_13" name="type">SPAN</property>
+<property part-name="a4tv_SPAN_13" name="depth">6</property>
+<property part-name="a4tv_DIV_11" name="type">Section</property>
+<property part-name="a4tv_DIV_11" name="depth">5</property>
+<property part-name="a4tv_SPAN_15" name="text">Cocorico</property>
+<property part-name="a4tv_SPAN_15" name="type">SPAN</property>
+<property part-name="a4tv_SPAN_15" name="depth">6</property>
+<property part-name="a4tv_DIV_12" name="type">Section</property>
+<property part-name="a4tv_DIV_12" name="depth">2</property>
+<property part-name="info-panel" name="type">Section</property>
+<property part-name="info-panel" name="depth">2</property>
+<property part-name="info-panel-title" name="text">Autoplay  toca automaticamente o próximo vídeo da lista</property>
+<property part-name="info-panel-title" name="type">Section</property>
+<property part-name="info-panel-title" name="depth">3</property>
+<property part-name="info-panel-desc" name="type">Section</property>
+<property part-name="info-panel-desc" name="depth">3</property>
+<property part-name="channel-panel" name="type">Section</property>
+<property part-name="channel-panel" name="depth">2</property>
+<property part-name="a4tv_DIV_23" name="type">Section</property>
+<property part-name="a4tv_DIV_23" name="depth">3</property>
+<property part-name="a4tv_DIV_24" name="type">Section</property>
+<property part-name="a4tv_DIV_24" name="focused">true</property>
+<property part-name="a4tv_DIV_24" name="depth">4</property>
+<property part-name="a4tv_DIV_25" name="type">Section</property>
+<property part-name="a4tv_DIV_25" name="depth">5</property>
+<property part-name="a4tv_SPAN_26" name="text">Autoplay </property>
+<property part-name="a4tv_SPAN_26" name="type">SPAN</property>
+<property part-name="a4tv_SPAN_26" name="depth">6</property>
+<property part-name="a4tv_SPAN_27" name="text">Off</property>
+<property part-name="a4tv_SPAN_27" name="type">SPAN</property>
+<property part-name="a4tv_SPAN_27" name="depth">6</property>
+<property part-name="a4tv_DIV_28" name="type">Section</property>
+<property part-name="a4tv_DIV_28" name="depth">4</property>
+<property part-name="a4tv_DIV_29" name="type">Section</property>
+<property part-name="a4tv_DIV_29" name="depth">5</property>
+<property part-name="a4tv_SPAN_30" name="text">Shuffle </property>
+<property part-name="a4tv_SPAN_30" name="type">SPAN</property>
+<property part-name="a4tv_SPAN_30" name="depth">6</property>
+<property part-name="a4tv_SPAN_31" name="text">Off</property>
+<property part-name="a4tv_SPAN_31" name="type">SPAN</property>
+<property part-name="a4tv_SPAN_31" name="depth">6</property>
+<property part-name="a4tv_DIV_32" name="type">Section</property>
+<property part-name="a4tv_DIV_32" name="depth">4</property>
+<property part-name="a4tv_DIV_33" name="type">Section</property>
+<property part-name="a4tv_DIV_33" name="depth">5</property>
+<property part-name="a4tv_SPAN_34" name="type">SPAN</property>
+<property part-name="a4tv_SPAN_34" name="depth">6</property>
+<property part-name="a4tv_SPAN_35" name="text">Sobre</property>
+<property part-name="a4tv_SPAN_35" name="type">SPAN</property>
+<property part-name="a4tv_SPAN_35" name="depth">6</property>
+<property part-name="notifications" name="type">Section</property>
+<property part-name="notifications" name="depth">1</property>
+<property part-name="main" name="block">L61</property>
+<property part-name="main" name="orientation">horizontal</property>
+<property part-name="video" name="block">L61</property>
+<property part-name="video" name="orientation">horizontal</property>
+<property part-name="select-view" name="block">L61</property>
+<property part-name="select-view" name="orientation">horizontal</property>
+<property part-name="a4tv_DIV_3" name="block">L65</property>
+<property part-name="a4tv_DIV_3" name="orientation">vertical</property>
+<property part-name="left-panel" name="block">L65</property>
+<property part-name="left-panel" name="orientation">vertical</property>
+<property part-name="logo" name="block">L65</property>
+<property part-name="logo" name="orientation">vertical</property>
+<property part-name="category-list" name="block">L67</property>
+<property part-name="category-list" name="orientation">vertical</property>
+<property part-name="a4tv_DIV_8" name="block">L67</property>
+<property part-name="a4tv_DIV_8" name="orientation">vertical</property>
+<property part-name="a4tv_SPAN_9" name="block">L67</property>
+<property part-name="a4tv_SPAN_9" name="orientation">vertical</property>
+<property part-name="a4tv_DIV_9" name="block">L67</property>
+<property part-name="a4tv_DIV_9" name="orientation">vertical</property>
+<property part-name="a4tv_SPAN_11" name="block">L67</property>
+<property part-name="a4tv_SPAN_11" name="orientation">vertical</property>
+<property part-name="a4tv_DIV_10" name="block">L67</property>
+<property part-name="a4tv_DIV_10" name="orientation">vertical</property>
+<property part-name="a4tv_SPAN_13" name="block">L78</property>
+<property part-name="a4tv_SPAN_13" name="orientation">horizontal</property>
+<property part-name="a4tv_DIV_11" name="block">L67</property>
+<property part-name="a4tv_DIV_11" name="orientation">vertical</property>
+<property part-name="a4tv_SPAN_15" name="block">L67</property>
+<property part-name="a4tv_SPAN_15" name="orientation">vertical</property>
+<property part-name="a4tv_DIV_12" name="block">L65</property>
+<property part-name="a4tv_DIV_12" name="orientation">vertical</property>
+<property part-name="info-panel" name="block">L61</property>
+<property part-name="info-panel" name="orientation">horizontal</property>
+<property part-name="info-panel-title" name="block">L61</property>
+<property part-name="info-panel-title" name="orientation">horizontal</property>
+<property part-name="info-panel-desc" name="block">L61</property>
+<property part-name="info-panel-desc" name="orientation">horizontal</property>
+<property part-name="a4tv_DIV_24" name="block">L67</property>
+<property part-name="a4tv_DIV_24" name="orientation">vertical</property>
+<property part-name="a4tv_DIV_25" name="block">L67</property>
+<property part-name="a4tv_DIV_25" name="orientation">vertical</property>
+<property part-name="a4tv_SPAN_26" name="block">L78</property>
+<property part-name="a4tv_SPAN_26" name="orientation">horizontal</property>
+<property part-name="a4tv_SPAN_27" name="block">L78</property>
+<property part-name="a4tv_SPAN_27" name="orientation">horizontal</property>
+<property part-name="a4tv_DIV_28" name="block">L61</property>
+<property part-name="a4tv_DIV_28" name="orientation">horizontal</property>
+<property part-name="a4tv_DIV_29" name="block">L61</property>
+<property part-name="a4tv_DIV_29" name="orientation">horizontal</property>
+<property part-name="a4tv_SPAN_30" name="block">L78</property>
+<property part-name="a4tv_SPAN_30" name="orientation">horizontal</property>
+<property part-name="a4tv_SPAN_31" name="block">L78</property>
+<property part-name="a4tv_SPAN_31" name="orientation">horizontal</property>
+<property part-name="a4tv_DIV_32" name="block">L61</property>
+<property part-name="a4tv_DIV_32" name="orientation">horizontal</property>
+<property part-name="a4tv_DIV_33" name="block">L61</property>
+<property part-name="a4tv_DIV_33" name="orientation">horizontal</property>
+<property part-name="a4tv_SPAN_34" name="block">L61</property>
+<property part-name="a4tv_SPAN_34" name="orientation">horizontal</property>
+<property part-name="a4tv_SPAN_35" name="block">L61</property>
+<property part-name="a4tv_SPAN_35" name="orientation">horizontal</property>
+<property part-name="notifications" name="block">L61</property>
+<property part-name="notifications" name="orientation">horizontal</property>
+</style>
+</interface>
+</uiml>
+
+
+
+
+<uiml xmlns="http://docs.oasis-open.org/uiml/ns/uiml4.0">
+<peers>
+<presentation base=" HTML_4.01frameset_Harmonia_0.1 "/>
+</peers>
+<interface>
+<structure>
+<part class="application" id="a4tv_app">
+<part class="DIV" id="rss_reader_view">
+<part class="DIV" id="main_container">
+<part class="DIV" id="channel-view"/>
+<part class="DIV" id="feed-view">
+<part class="DIV" id="active_item">
+<part class="DIV" id="active_content">
+<part class="ARTICLE" id="a4tv_ARTICLE_79">
+<part class="H2" id="a4tv_H2_80">
+<part class="SPAN" id="openItem"/>
+</part>
+<part class="H6" id="a4tv_H6_82"/>
+<part class="DIV" id="a4tv_DIV_83">
+<part class="P" id="a4tv_P_84">
+<part class="STRONG" id="a4tv_STRONG_85"/>
+</part>
+<part class="P" id="selo-agencia"/>
+<part class="P" id="a4tv_P_87"/>
+<part class="P" id="a4tv_P_88">
+<part class="IMG" id="a4tv_IMG_89"/>
+</part>
+</part>
+</part>
+</part>
+</part>
+</part>
+</part>
+</part>
+<part class="UL" id="a4tv_UL_9">
+<part class="LI" id="a4tv_LI_10">
+<part class="SPAN" id="a4tv_SPAN_11"/>
+</part>
+<part class="LI" id="a4tv_LI_12">
+<part class="SPAN" id="a4tv_SPAN_13"/>
+</part>
+<part class="LI" id="a4tv_LI_14">
+<part class="SPAN" id="a4tv_SPAN_15"/>
+</part>
+<part class="LI" id="a4tv_LI_16">
+<part class="SPAN" id="a4tv_SPAN_17"/>
+</part>
+</part>
+<part class="DIV" id="item_list">
+<part class="DIV" id="item_list_cnt">
+<part class="ARTICLE" id="a4tv_ARTICLE_22">
+<part class="SECTION" id="a4tv_SECTION_23">
+<part class="H5" id="a4tv_H5_24"/>
+</part>
+</part>
+<part class="ARTICLE" id="a4tv_ARTICLE_25">
+<part class="SECTION" id="a4tv_SECTION_26">
+<part class="H5" id="a4tv_H5_27"/>
+</part>
+</part>
+<part class="ARTICLE" id="a4tv_ARTICLE_28">
+<part class="SECTION" id="a4tv_SECTION_29">
+<part class="H5" id="a4tv_H5_31"/>
+</part>
+</part>
+<part class="ARTICLE" id="a4tv_ARTICLE_32">
+<part class="SECTION" id="a4tv_SECTION_33">
+<part class="H5" id="a4tv_H5_34"/>
+</part>
+</part>
+</part>
+<part class="DIV" id="item_list_indicator"/>
+<part class="DIV" id="a4tv_DIV_75"/>
+<part class="DIV" id="a4tv_DIV_76"/>
+</part>
+<part class="DIV" id="fps"/>
+</part>
+</structure>
+<style>
+<property part-name="a4tv_LI_10" name="text">Slideshow</property>
+<property part-name="a4tv_LI_10" name="target_down">active_item</property>
+<property part-name="a4tv_LI_10" name="target_left">a4tv_ARTICLE_22</property>
+<property part-name="a4tv_LI_10" name="target_right">a4tv_LI_12</property>
+<property part-name="a4tv_LI_12" name="text">Update</property>
+<property part-name="a4tv_LI_12" name="target_down">active_item</property>
+<property part-name="a4tv_LI_12" name="target_left">a4tv_LI_10</property>
+<property part-name="a4tv_LI_12" name="target_right">a4tv_LI_14</property>
+<property part-name="a4tv_LI_14" name="text">About</property>
+<property part-name="a4tv_LI_14" name="target_down">active_item</property>
+<property part-name="a4tv_LI_14" name="target_left">a4tv_LI_12</property>
+<property part-name="a4tv_LI_14" name="target_right">a4tv_LI_16</property>
+<property part-name="a4tv_LI_16" name="text">Exit</property>
+<property part-name="a4tv_LI_16" name="target_down">active_item</property>
+<property part-name="a4tv_LI_16" name="target_left">a4tv_LI_14</property>
+<property part-name="active_item" name="target_up">a4tv_LI_12</property>
+<property part-name="a4tv_ARTICLE_22" name="type">ARTICLE</property>
+<property part-name="a4tv_ARTICLE_22" name="target_down">a4tv_ARTICLE_25</property>
+<property part-name="a4tv_ARTICLE_22" name="target_right">active_item</property>
+<property part-name="a4tv_ARTICLE_25" name="type">ARTICLE</property>
+<property part-name="a4tv_ARTICLE_25" name="target_up">a4tv_ARTICLE_22</property>
+<property part-name="a4tv_ARTICLE_25" name="target_down">a4tv_ARTICLE_28</property>
+<property part-name="a4tv_ARTICLE_25" name="target_right">active_item</property>
+<property part-name="a4tv_ARTICLE_28" name="type">ARTICLE</property>
+<property part-name="a4tv_ARTICLE_28" name="target_up">a4tv_ARTICLE_25</property>
+<property part-name="a4tv_ARTICLE_28" name="target_down">a4tv_ARTICLE_32</property>
+<property part-name="a4tv_ARTICLE_28" name="target_right">active_item</property>
+<property part-name="a4tv_ARTICLE_32" name="type">ARTICLE</property>
+<property part-name="a4tv_ARTICLE_32" name="target_up">a4tv_ARTICLE_28</property>
+<property part-name="a4tv_ARTICLE_32" name="target_down">a4tv_ARTICLE_35</property>
+<property part-name="a4tv_ARTICLE_32" name="target_right">active_item</property>
+<property part-name="a4tv_ARTICLE_35" name="type">ARTICLE</property>
+<property part-name="a4tv_ARTICLE_35" name="target_up">a4tv_ARTICLE_32</property>
+<property part-name="a4tv_ARTICLE_35" name="target_down">a4tv_ARTICLE_38</property>
+<property part-name="a4tv_ARTICLE_35" name="target_right">active_item</property>
+<property part-name="a4tv_ARTICLE_38" name="type">ARTICLE</property>
+<property part-name="a4tv_ARTICLE_38" name="target_up">a4tv_ARTICLE_35</property>
+<property part-name="a4tv_ARTICLE_38" name="target_down">a4tv_ARTICLE_42</property>
+<property part-name="a4tv_ARTICLE_38" name="target_right">active_item</property>
+<property part-name="a4tv_ARTICLE_42" name="type">ARTICLE</property>
+<property part-name="a4tv_ARTICLE_42" name="target_up">a4tv_ARTICLE_38</property>
+<property part-name="a4tv_ARTICLE_42" name="target_down">a4tv_ARTICLE_45</property>
+<property part-name="a4tv_ARTICLE_42" name="target_right">active_item</property>
+<property part-name="a4tv_ARTICLE_45" name="type">ARTICLE</property>
+<property part-name="a4tv_ARTICLE_45" name="target_up">a4tv_ARTICLE_42</property>
+<property part-name="a4tv_ARTICLE_45" name="target_down">a4tv_ARTICLE_48</property>
+<property part-name="a4tv_ARTICLE_45" name="target_right">active_item</property>
+<property part-name="a4tv_ARTICLE_52" name="type">ARTICLE</property>
+<property part-name="a4tv_ARTICLE_52" name="target_up">a4tv_ARTICLE_48</property>
+<property part-name="a4tv_ARTICLE_52" name="target_down">a4tv_ARTICLE_55</property>
+<property part-name="a4tv_ARTICLE_52" name="target_right">active_item</property>
+<property part-name="a4tv_ARTICLE_55" name="type">ARTICLE</property>
+<property part-name="a4tv_ARTICLE_55" name="target_up">a4tv_ARTICLE_52</property>
+<property part-name="a4tv_ARTICLE_55" name="target_down">a4tv_ARTICLE_58</property>
+<property part-name="a4tv_ARTICLE_55" name="target_right">active_item</property>
+</style>
+</interface>
+</uiml>
+
+

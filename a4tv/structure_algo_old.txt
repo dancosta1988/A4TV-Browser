@@ -1,0 +1,43 @@
+for (i = 0; i < size; i++) {
+		var tag = elems[i].tagName;
+		
+        if (A4TV.isElementVisible(elems[i])){
+		
+			if(!elems[i].hasAttribute('id')){
+				elems[i].setAttribute("id", "a4tv_"+tag+"_"+i);
+			}
+				
+            var id = elems[i].id;
+			
+			parentId = elems[i].parentElement.id;
+			if(!parentId ){ //father
+				uiml += ("<part class=\"" + tag + "\" id=\"" + id + "\" >");
+				parents++;
+			}else if(parentId == previousId){ //child
+				uiml += ("	<part class=\"" + tag + "\" id=\"" + id + "\" >");
+				parents++;
+			}else if(parentId == previousParentId){ //brother
+				uiml += ("</part>");
+				parents--;
+				uiml += ("	<part class=\"" + tag + "\" id=\"" + id + "\" >");
+				parents++;
+			}else if(parentId != previousId && parentId != previousParentId){
+				while(parents > 0){
+						uiml += ("</part>");
+						parents--;
+				}
+				uiml += ("<part class=\"" + tag + "\" id=\"" + id + "\" >");
+				parents++;
+			}else if(i = size-1){
+					while(parents > 0){
+						uiml += ("</part>");
+						parents--;
+					}
+				
+			}
+			
+			previousParentId = parentId;
+			previousId = id;
+        }
+		
+    }

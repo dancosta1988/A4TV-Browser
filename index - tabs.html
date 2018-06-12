@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A4TV Accessible Browser</title>
+	
+	<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="node_modules/x-chrome-tabs/dists/js/bundle.min.js"></script>
+	<style>
+	  html,
+	  body {
+		margin:0;
+		padding:0;
+		overflow:hidden;
+		background-color:#e6e6e6;
+	  }
+	</style>
+	<link rel="stylesheet" href="node_modules/x-chrome-tabs/src/css/base.min.css" />
+	<link rel="stylesheet" href="node_modules/x-chrome-tabs/src/css/dark.min.css" />
+  </head>
+  <body style="overflow:hidden;">
+   
+  
+	<div class="chrome-tabs"></div>
+
+  <div class="chrome-tab-tools">
+    <button class="-add-tab">Add Tab</button>
+    <button class="-remove-tab">Remove Tab</button>
+    <button class="-toggle-dark-theme">Toggle Theme</button>
+  </div>
+
+	<!--<webview id="webview"  preload="a4tv/content.js" src="http://cmais.com.br/opera/cocorico/" style="position:absolute;width:100%;height:100%;" nodeintegration></webview>
+	<!--<webview id="webview"  preload="a4tv/content.js" src="http://apps.tvstore.opera.com/moda/?uid=d6eaada8f968c77fe140db70c7e0d277465d3d12686857ba98b63b47b967985axig-modax9cc2de65f343d21555b83e0c2ccd14725834ea8ff8e13254b6985ea0fd22409a#fix" style="position:absolute;width:100%;height:100%;left:0px;top:0px;" nodeintegration></webview>-->
+	<!--<webview id="webview"  preload="a4tv/content.js" src="http://www.gamereactor.eu/smarttvapps/sony/index.html" style="position:absolute;width:100%;height:100%;" nodeintegration></webview>-->	
+    <!--<webview id="webview"  preload="a4tv/content.js" src="http://apps.tvstore.opera.com/dailymotion/?target_user=RantSports" style="position:absolute;width:100%;height:100%;" nodeintegration></webview>-->
+   
+	<script>
+	  /*const ipcRenderer = require('electron').ipcRenderer;
+
+		ipcRenderer.on('getCues' , function(event , data){
+			
+			ipcRenderer.send('debug', 'hello'); 
+			alert('fuck you');
+			
+		});
+	*/
+	
+	  let $ = require('jquery');
+	  $.fn.chromeTabs = require('x-chrome-tabs');
+
+	  $(document).ready(() => {
+		$('.chrome-tabs').chromeTabs({views: 'webviews'});
+	  });
+	</script>
+	
+	<script>
+    // jshint esversion: 6
+
+    $(document).ready($ => {
+		
+      let settings = {
+        minWidth: 45,
+        maxWidth: 243,
+
+        leftPadding: 0,
+        leftPaddingMobile: 0,
+
+        rightPadding: 300,
+        rightPaddingMobile: 0,
+
+        overlapDistance: 14,
+
+        views: 'webviews', // or `webviews`.
+        // `webviews` = Electron compatibility.
+        // Or leave empty to disable views entirely.
+
+        allowDragNDrop: true,
+        allowDoubleClick: true,
+
+        debug: 3 // Enable debugging for tests.
+      };
+
+      $('.chrome-tabs').chromeTabs(settings).each((i, obj) => {
+
+        let $chromeTabs = $(obj); // jQuery & class.
+        $chromeTabs._ = $chromeTabs.data('chromeTabs');
+
+        let $tabs = $chromeTabs._.addTabs([
+          {
+            title: 'original-tab',
+            url: 'http://cmais.com.br/opera/cocorico/',
+			viewAttrs: {
+			  preload: 'a4tv/content.js',
+			  allowpopups: null,
+			  disablewebsecurity: null,
+			  webpreferences: 'allowDisplayingInsecureContent'
+			  // ... and some others are also available.
+			  // See: <http://electron.atom.io/docs/api/web-view-tag/>
+			}
+          }, {
+            title: 'top-tab',
+            url: 'http://cmais.com.br/opera/cocorico/',
+			viewAttrs: {
+			  preload: 'a4tv/contentlite.js',
+			  allowpopups: null,
+			  disablewebsecurity: null,
+			  webpreferences: 'allowDisplayingInsecureContent'
+			  // ... and some others are also available.
+			  // See: <http://electron.atom.io/docs/api/web-view-tag/>
+			}
+          }, {
+            title: 'down-tab',
+            url: 'http://cmais.com.br/opera/cocorico/',
+			viewAttrs: {
+			  preload: 'a4tv/content.js',
+			  allowpopups: null,
+			  disablewebsecurity: null,
+			  webpreferences: 'allowDisplayingInsecureContent'
+			  // ... and some others are also available.
+			  // See: <http://electron.atom.io/docs/api/web-view-tag/>
+			}
+          }, {
+            title: 'left-tab',
+            url: 'http://cmais.com.br/opera/cocorico/',
+			viewAttrs: {
+			  preload: 'a4tv/content.js',
+			  allowpopups: null,
+			  disablewebsecurity: null,
+			  webpreferences: 'allowDisplayingInsecureContent'
+			  // ... and some others are also available.
+			  // See: <http://electron.atom.io/docs/api/web-view-tag/>
+			}
+          }, {
+            title: 'right-tab',
+            url: 'http://cmais.com.br/opera/cocorico/',
+			viewAttrs: {
+			  preload: 'a4tv/content.js',
+			  allowpopups: null,
+			  disablewebsecurity: null,
+			  webpreferences: 'allowDisplayingInsecureContent'
+			  // ... and some others are also available.
+			  // See: <http://electron.atom.io/docs/api/web-view-tag/>
+			}
+          }
+        ]);
+        $chromeTabs._.setCurrentTab($tabs.eq(0));
+
+        $('.chrome-tab-tools > .-add-tab').on('click', (e) => {
+          let url = prompt('URL (empty = default tab):');
+          if (url !== null) $chromeTabs._.addTab(url ? { url } : {});
+        });
+        $('.chrome-tab-tools > .-remove-tab').on('click', (e) => {
+          $chromeTabs._.removeTab($chromeTabs._.$currentTab);
+        });
+        $('.chrome-tab-tools > .-toggle-dark-theme').on('click', (e) => {
+          $chromeTabs.toggleClass('-dark-theme');
+        });
+
+        if ($chromeTabs._.settings.debug >= 2) {
+          $chromeTabs.on('constructed', (event, instance) => console.log('Tabs constructed.'));
+          $chromeTabs.on('initialized', (event, instance) => console.log('Tabs initialized.'));
+          $chromeTabs.on('destroyed', (event, instance) => console.log('Tabs destroyed.'));
+
+          $chromeTabs.on('tabAdded', (event, tab, instance) => console.log('Tab added.', tab));
+          $chromeTabs.on('tabUpdated', (event, tab, props, via, prevProps, newProps, instance) => console.log('Tab props updated.', tab, props, via, prevProps, newProps));
+          $chromeTabs.on('currentTabChanged', (event, tab, instance) => console.log('Current tab changed to.', tab));
+
+          $chromeTabs.on('tabDragStarted', (event, tab, instance) => console.log('Tab drag started.', tab));
+          $chromeTabs.on('tabDragMoved', (event, tab, indexes, instance) => console.log('Tab dragged to a new location.', tab, indexes));
+          $chromeTabs.on('tabDragStopped', (event, tab, newIndex, instance) => console.log('Tab drag stopped.', tab, newIndex));
+
+          $chromeTabs.on('tabBeingRemoved', (event, tab, instance) => console.log('Tab will be removed.', tab));
+          $chromeTabs.on('tabRemoved', (event, tab, instance) => console.log('Tab removed.', tab));
+
+          if ($chromeTabs._.settings.debug >= 3 && $chromeTabs._.settings.views) {
+            let $chromeTabViews = $chromeTabs._.$views;
+            $chromeTabViews._ = $chromeTabViews.data('chromeTabViews');
+
+            $chromeTabViews.on('constructed', (event, instance) => console.log('Views constructed.'));
+            $chromeTabViews.on('initialized', (event, instance) => console.log('Views initialized.'));
+            $chromeTabViews.on('destroyed', (event, instance) => console.log('Views destroyed.'));
+
+            $chromeTabViews.on('viewIndexed', (event, view, locations, instance) => console.log('View indexed.', view, locations));
+            $chromeTabViews.on('viewAdded', (event, view, instance) => console.log('View added.', view));
+            $chromeTabViews.on('viewUpdated', (event, view, props, via, prevProps, newProps, instance) => console.log('View props updated.', view, props, via, prevProps, newProps));
+            $chromeTabViews.on('currentViewChanged', (event, view, instance) => console.log('Current view changed to.', view));
+
+            $chromeTabViews.on('viewBeingRemoved', (event, view, instance) => console.log('View will be removed.', view));
+            $chromeTabViews.on('viewRemoved', (event, view, instance) => console.log('View removed.', view));
+
+            $chromeTabViews.on('viewStartedLoading', (event, view, instance) => console.log('View started loading.', view));
+            $chromeTabViews.on('viewFaviconUpdated', (event, view, favicon, instance) => console.log('View favicon updated.', view, favicon));
+            $chromeTabViews.on('viewTitleUpdated', (event, view, title, instance) => console.log('View title updated.', view, title));
+            $chromeTabViews.on('viewStoppedLoading', (event, view, instance) => console.log('View stopped loading.', view));
+          }
+        }
+      });
+    });
+  </script>
+
+  </body>
+</html>
