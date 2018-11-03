@@ -734,7 +734,7 @@ function compressArray(original) {
 A4TV.associateElemsWithBlocksInUIML = function(elems){
 	var size = elems.length;
 	var associatedElements = new Array();
-	sendlog("has video player: " + A4TV.uiRepresentation.hasVideoPlayer);
+	//sendlog("has video player: " + A4TV.uiRepresentation.hasVideoPlayer);
 	for (i = 0; i < size; i++) {
         if (elems[i].hasAttribute('id') /*&& A4TV.isElementVisible(elems[i])*/ && associatedElements.indexOf(elems[i].id) == -1) {
 			var id = elems[i].id;
@@ -751,8 +751,8 @@ A4TV.associateElemsWithBlocksInUIML = function(elems){
 						
 					}else{
 						associatedElements.push(siblings[c].id);
-						if(A4TV.debug)
-							sendlog("elem with id: " + id + " does not fit in a block.");
+						//if(A4TV.debug)
+							//sendlog("elem with id: " + id + " does not fit in a block.");
 					}
 				}
 				
@@ -775,8 +775,8 @@ A4TV.associateElemsWithBlocksInUIML = function(elems){
 				for (f = 0; f < siblings.length; f++) {
 					if (siblings[f].id != undefined && siblings[f].id != "" && associatedElements.indexOf(siblings[f].id) == -1){
 					
-						if(A4TV.debug)
-							sendlog("elem with id: " + siblings[f].id + " belongs to block: " + candidateBlock.id);
+						//if(A4TV.debug)
+							//sendlog("elem with id: " + siblings[f].id + " belongs to block: " + candidateBlock.id);
 						associatedElements.push(siblings[f].id);
 						A4TV.uiRepresentation.appendUiml( "property", siblings[f].id, "name", "block", candidateBlock.id, "style" );
 						A4TV.uiRepresentation.appendUiml( "property", siblings[f].id, "name", "orientation", candidateBlock.orientation, "style" );
@@ -818,7 +818,7 @@ A4TV.associateElemsWithBlocksInUIML = function(elems){
 					if(candidateBlock.id == A4TV.blocks[h].id && candidateBlock.width == A4TV.blocks[h].width && candidateBlock.height == A4TV.blocks[h].height){
 						if(A4TV.blocks[h].type == ""){
 							A4TV.blocks[h].type = block_type;
-							sendlog("Updating block " + A4TV.blocks[h].id + " with style: " + A4TV.blocks[h].type);
+							//sendlog("Updating block " + A4TV.blocks[h].id + " with style: " + A4TV.blocks[h].type);
 						}							
 						break;
 					}
@@ -842,7 +842,7 @@ A4TV.setBlocksInUIML = function(){
 		var found = false;
 		for (h = 0; h < A4TV.allBlocks.length; h++){
 			if(A4TV.blocks[i].id == A4TV.allBlocks[h].id && A4TV.blocks[i].width == A4TV.allBlocks[h].width && A4TV.blocks[i].height == A4TV.allBlocks[h].height){
-				sendlog("Found existent block id: " + A4TV.allBlocks[i].id + " with style: " + A4TV.allBlocks[i].type);
+				//sendlog("Found existent block id: " + A4TV.allBlocks[i].id + " with style: " + A4TV.allBlocks[i].type);
 				found = true;
 				A4TV.uiRepresentation.appendUiml( "property", A4TV.allBlocks[h].id, "name", "position", A4TV.allBlocks[h].posX + ";" + A4TV.allBlocks[h].posY, "style" );
 				A4TV.uiRepresentation.appendUiml( "property", A4TV.allBlocks[h].id, "name", "dimensions", A4TV.allBlocks[h].width + ";" + A4TV.allBlocks[h].height, "style" );
@@ -852,7 +852,7 @@ A4TV.setBlocksInUIML = function(){
 			}
 		}
 		if(!found){
-			sendlog("Not Found adding block id: " + A4TV.blocks[i].id + " with style: " + A4TV.blocks[i].type);
+			//sendlog("Not Found adding block id: " + A4TV.blocks[i].id + " with style: " + A4TV.blocks[i].type);
 			A4TV.uiRepresentation.appendUiml( "property", A4TV.blocks[i].id, "name", "position", A4TV.blocks[i].posX + ";" + A4TV.blocks[i].posY, "style" );
 			A4TV.uiRepresentation.appendUiml( "property", A4TV.blocks[i].id, "name", "dimensions", A4TV.blocks[i].width + ";" + A4TV.blocks[i].height, "style" );
 			A4TV.uiRepresentation.appendUiml( "property", A4TV.blocks[i].id, "name", "orientation", A4TV.blocks[i].orientation, "style" );
@@ -886,8 +886,8 @@ A4TV.getAllBlocks = function(){
 		if(/*bArea > minArea &&*/ bArea < maxArea){
 			block = { id: "L"+i, orientation: bOrientation, posX: bPosition.x, posY: bPosition.y, width: bWidth, height: bHeight, type: ""};
 			A4TV.blocks.push(block);
-			if(A4TV.debug)
-				sendlog(" block id: " + "L"+i + " block left: " + bPosition.x + " block top: " + bPosition.y + " block width: " + bWidth + " block height: " + bHeight );
+			//if(A4TV.debug)
+				//sendlog(" block id: " + "L"+i + " block left: " + bPosition.x + " block top: " + bPosition.y + " block width: " + bWidth + " block height: " + bHeight );
 			
 		}
 	}
@@ -1057,6 +1057,18 @@ A4TV.isElementVisible = function(el) {
     return isVisible;
 }
 
+A4TV.changeVolume = function(volume){
+	var elems = document.getElementsByTagName('video');
+	var size = elems.length;	
+	sendlog("videos: " + size);
+	try{
+		for(var i = 0; i < size; i++){
+			elems[i].volume = volume;
+		}
+	}catch(e){
+		sendlog("Error setting volume:" + e);
+	}
+}
 
 A4TV.changeFont = function(element){
 	try{
@@ -1131,16 +1143,16 @@ function sendUIML(){
 	A4TV.getGuideHtmlElements();
 	
 	var currentHash = A4TV.uiRepresentation.getHash(document.getElementsByTagName("html")[0].innerHTML);
-	sendlog(document.getElementsByTagName("html")[0].innerHTML);
-	sendlog("Hash: " + currentHash);
+	//sendlog(document.getElementsByTagName("html")[0].innerHTML);
+	//sendlog("Hash: " + currentHash);
 	var alreadyExists = false;
 	for (var i = 0; i < A4TV.uiRepresentation.storedUIMLs.length; i++){
-		sendlog("stored hash: " + A4TV.uiRepresentation.storedUIMLs[i].hash);
+		//sendlog("stored hash: " + A4TV.uiRepresentation.storedUIMLs[i].hash);
 		if(A4TV.uiRepresentation.storedUIMLs[i].hash === currentHash){
 			A4TV.uiRepresentation.currentUimlStr = A4TV.uiRepresentation.storedUIMLs[i].uiml;
 			sendMessage(A4TV.uiRepresentation.currentUimlStr);
 			alreadyExists = true;
-			sendlog("Found the hash");
+			//sendlog("Found the hash");
 			break;
 		}
 		
@@ -1152,7 +1164,7 @@ function sendUIML(){
 	}
 	
 	if(!alreadyExists){
-		sendlog("Did not found the hash");
+		//sendlog("Did not found the hash");
 		A4TV.uiRepresentation.generateUiml( A4TV.htmlNodeList );
 		
 		if(A4TV.useBlockOMatic == true){
@@ -1243,6 +1255,10 @@ function executeKeyCode(response){
 		
 }
 
+function executeVolumeChange(value){
+	A4TV.changeVolume(value);
+}
+
 function segmentPage(){
 	try{
 		 A4TV.getGuideHtmlElements();
@@ -1300,13 +1316,20 @@ function connect(){
 						  A4TV.clearBlocks();
 					  var received_msg = evt.data;
 					  console.log("Message received..." + received_msg);
+					  sendlog("Message received..." + received_msg);
 					  var cmd = received_msg.split(";");
 					  var key = cmd[0].split("=");
 					  var user = cmd[1].split("=");
+					  var volume = cmd[2].split("=");
 					  var keyCode = key[1];
 					  var usertype = user[1];
+					  var volumeValue = volume[1];
 					  A4TV.userType = usertype;
-					  executeKeyCode({keycode: keyCode});
+					  if(volumeValue != -1)
+						executeVolumeChange(volumeValue);
+					  
+					  if(keyCode != -1)
+						executeKeyCode({keycode: keyCode});
 					  //ws.send("Messagem de teste");
 				   };
 					
