@@ -1,18 +1,93 @@
 <!DOCTYPE html>
 <html>
   <head>
+	<meta charset="UTF-8">
     <title>A4TV Accessible Browser</title>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+	<script src="a4tv/content.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="a4tv.css">
   </head>
   <body style="overflow:hidden;">
-    
-	<webview id="webview"  preload="a4tv/content.js" src="http://cmais.com.br/opera/cocorico/" style="position:absolute;width:100%;height:100%;" nodeintegration></webview>
+    <div id = "content">
+		<img id = "app1" src="app1.jpg" alt="Cócóricó Vídeos Infantis" width="300" height="300" class = "selected">
+		<img id = "app2" src="app2.png" alt="IG Moda" width="300" height="300">
+		<img id = "app3" src="app3.png" alt="Tecnologia" width="300" height="300">
+	</div>
+	
+	<!--<webview id="webview"  preload="a4tv/content.js" src="http://cmais.com.br/opera/cocorico/" style="position:absolute;width:100%;height:100%;" nodeintegration></webview>-->
 	<!--<webview id="webview"  preload="a4tv/content.js" src="http://apps.tvstore.opera.com/moda/?uid=d6eaada8f968c77fe140db70c7e0d277465d3d12686857ba98b63b47b967985axig-modax9cc2de65f343d21555b83e0c2ccd14725834ea8ff8e13254b6985ea0fd22409a#fix" style="position:absolute;width:100%;height:100%;left:0px;top:0px;" nodeintegration></webview>-->
-	<!--<webview id="webview"  preload="a4tv/content.js" src="http://www.gamereactor.eu/smarttvapps/sony/index.html" style="position:absolute;width:100%;height:100%;" nodeintegration></webview>-->	
+	<!--<webview id="webview"  preload="a4tv/content.js" src="https://d3u3bgui77bitj.cloudfront.net/videotemplate/index.html?bg=jpg&target_user=spacevidsnet&app_id=27509&uid=b8eb72e54841d164f698c3ad7d7274ecb05152d9b37722110f392f23f82a2241xspace-videosxfd0b8e54bb020d267556896c8351c43e98e9e19d03a8f042f7e59ad39da7e6d7&origin=TV%20Store%202#fix" style="position:absolute;width:100%;height:100%;" nodeintegration></webview>-->
+	<!--<webview id="webview"  preload="a4tv/content.js" src="https://d3u3bgui77bitj.cloudfront.net/apps/tecnologia/index.html?uid=28c2c4ccf929895d33a9fb3b0f39298ec0b6591653403e8dbce2c71ddc4d2997xig-tecnologiaxfd0b8e54bb020d267556896c8351c43e98e9e19d03a8f042f7e59ad39da7e6d7&origin=TV%20Store%202#fix" style="position:absolute;width:100%;height:100%;" nodeintegration></webview>-->
     <!--<webview id="webview"  preload="a4tv/content.js" src="http://apps.tvstore.opera.com/dailymotion/?target_user=RantSports" style="position:absolute;width:100%;height:100%;" nodeintegration></webview>-->
     <script>
       // need to have a script tag make webview work even if you don't plan to use it...
-	</script>
+	  var apps = [{id: "app1", url: "http://cmais.com.br/opera/cocorico/"},
+	  {id: "app2", url: "http://cmais.com.br/opera/cocorico/"},
+	  {id: "app3", url: "http://cmais.com.br/opera/cocorico/"}];
+	  var selected = 0;
+	  
+	  function nextApp() {
+			console.log(apps[selected]);
+			document.getElementById(apps[selected].id).classList.remove('selected');
+			
+			selected++;
+			if(selected >= apps.length)
+				selected = 0;
+			
+			document.getElementById(apps[selected].id).classList.add('selected');
+	  }
+	  
+	  function previousApp() {
+			document.getElementById(apps[selected].id).classList.remove('selected');
+			
+			selected--;
+			if(selected < 0)
+				selected = apps.length-1;
+			
+			document.getElementById(apps[selected].id).classList.add('selected');
+	  }
+	  
+	  function startApp(){
+			var wv = document.createElement("webview");
+			wv.id = "webview";
+			wv.preload = "a4tv/content.js";
+			wv.style = "position:absolute;width:100%;height:100%;"
+			wv.src = apps[selected].url;
+			document.getElementById("content").innerHTML = "";
+			document.getElementById("content").appendChild(wv);
+	  }
+	  
+	  function clickHandler(e){
+			 var elem, evt = e ? e:event;
+			 if (evt.srcElement)  elem = evt.srcElement;
+			 else if (evt.target) elem = evt.target;
+			 
+			 console.log('You clicked with key ' + e.keyCode +' target ' + evt.target + " content: " + JSON.stringify(e, null, 4));
+			 if (e.keyCode == 37) {
+			   previousApp();
+		   }else if (e.keyCode == 39) {
+			   nextApp();
+		   }else if(e.keyCode == 13){
+				disconnect();
+			   startApp();
+		   }
+			 
+			 return true;
+	  }
 
+	  document.onkeydown=clickHandler;
+	  
+	  
+	  document.onkeyup = function(e) {
+		   var key = e.keyCode ? e.keyCode : e.which;
+		   console.log("key na main: " + key);
+		   
+		   
+	  }
+	  
+	</script>
+	
   </body>
+  
+  
 </html>

@@ -560,11 +560,11 @@ A4TV.uiRepresentation.generateUiml = function ( elems ) {
 			} 
             
 			//specific application extraction
-			if (elems[i].hasAttribute('class') && elems[i].getAttribute('class').search(' focused') > -1){
+			if (elems[i].hasAttribute('class') && elems[i].getAttribute('class').search('focused') > -1){
 				A4TV.uiRepresentation.appendUiml( "property", id, "name", "focused", true, "style" );
-			}else if (elems[i].hasAttribute('class') && elems[i].getAttribute('class').search(' active') > -1){
+			}else if (elems[i].hasAttribute('class') && elems[i].getAttribute('class').search('active') > -1){
 				A4TV.uiRepresentation.appendUiml( "property", id, "name", "focused", true, "style" );
-			}else if (elems[i].hasAttribute('class') && elems[i].getAttribute('class').search(' selected') > -1) {
+			}else if (elems[i].hasAttribute('class') && elems[i].getAttribute('class').search('selected') > -1) {
 				A4TV.uiRepresentation.appendUiml( "property", id, "name", "focused", true, "style" );
 			}
 			
@@ -1225,7 +1225,7 @@ window.onload = function() {
  
 };
 
-
+/*
 function clickHandler(e){
  var elem, evt = e ? e:event;
  if (evt.srcElement)  elem = evt.srcElement;
@@ -1234,9 +1234,9 @@ function clickHandler(e){
  console.log('You clicked with key ' + e.keyCode +' target ' + evt.target + " content: " + JSON.stringify(e, null, 4));
  
  return true;
-}
+}*/
 
-document.onkeydown=clickHandler;
+//document.onkeydown=clickHandler;
 
 function sendlog(msg){
 		console.log(msg);
@@ -1289,6 +1289,7 @@ function connect(){
 				   try{
 				   
 					  ws = new WebSocket("ws://localhost:8080/jsrA4TV");
+					  //ws = new WebSocket("ws://localhost:4445/");
 				   
 				   }catch(e){
 					   alert(e);
@@ -1337,7 +1338,8 @@ function connect(){
 				   { 
 					  // websocket is closed.
 					  console.log("Connection is closed...");
-					  setTimeout(connect, 2000);
+					  //ws.close();
+					  //setTimeout(connect, 2000);
 				   };
 				}
 				
@@ -1355,6 +1357,11 @@ function sendMessage(dom){
 			ws.send(dom);
 		}
     
+}
+
+function disconnect(){
+	console.log("Connection will close");
+	ws.close();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
