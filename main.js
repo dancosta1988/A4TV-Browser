@@ -70,11 +70,12 @@ app.on('activate', function () {
   }
 })
 
+app.commandLine.appendSwitch("ignore-certificate-errors");
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
 ipcMain.on('sendInputKey', function (e, key) {
-
+	mainWindow.focusOnWebView();
 	var newkey ="";
 	switch(key.key){
 		case "37": newkey = "LEFT";break; //LEFT
@@ -82,6 +83,7 @@ ipcMain.on('sendInputKey', function (e, key) {
 		case "39": newkey = "RIGHT";break; //RIGHT
 		case "40": newkey = "DOWN";break; //DOWN
 		case "13": newkey = "ENTER";break; //ENTER
+		case "8": newkey = "BACKSPACE";break;
 		case "19": newkey = "PAUSE";break; 
 		case "403": newkey = "RED";break;
 		case "404": newkey = "GREEN";break; 

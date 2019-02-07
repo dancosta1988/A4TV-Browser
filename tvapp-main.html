@@ -10,8 +10,9 @@
   <body style="overflow:hidden;">
     <div id = "content">
 		<img id = "app1" src="app1.jpg" alt="Cócóricó Vídeos Infantis" width="300" height="300" class = "selected">
-		<img id = "app2" src="app2.png" alt="IG Moda" width="300" height="300">
-		<img id = "app3" src="app3.png" alt="Tecnologia" width="300" height="300">
+		<img id = "app2" src="app2.jpeg" alt="Noticias" width="300" height="300">
+		<img id = "app3" src="app3.jpg" alt="Tecnologia" width="300" height="300">
+		<img id = "app4" src="app4.png" alt="Receitas" width="300" height="300">
 	</div>
 	
 	<!--<webview id="webview"  preload="a4tv/content.js" src="http://cmais.com.br/opera/cocorico/" style="position:absolute;width:100%;height:100%;" nodeintegration></webview>-->
@@ -21,9 +22,13 @@
     <!--<webview id="webview"  preload="a4tv/content.js" src="http://apps.tvstore.opera.com/dailymotion/?target_user=RantSports" style="position:absolute;width:100%;height:100%;" nodeintegration></webview>-->
     <script>
       // need to have a script tag make webview work even if you don't plan to use it...
+	  
+	  var onStore = true;
+	  
 	  var apps = [{id: "app1", url: "http://cmais.com.br/opera/cocorico/"},
-	  {id: "app2", url: "http://cmais.com.br/opera/cocorico/"},
-	  {id: "app3", url: "http://cmais.com.br/opera/cocorico/"}];
+	  {id: "app2", url: "https://d3u3bgui77bitj.cloudfront.net/apps/ultimosegundo/index.html?uid=527019d2900bfa1dbbd0a9f401502f47d38492d6b60b2ab611eee533be882826xig-ultimo-segundoxfd0b8e54bb020d267556896c8351c43e98e9e19d03a8f042f7e59ad39da7e6d7&origin=TV%20Store%202#fix"},
+	  {id: "app3", url: "https://d3u3bgui77bitj.cloudfront.net/apps/tecnologia/index.html?uid=28c2c4ccf929895d33a9fb3b0f39298ec0b6591653403e8dbce2c71ddc4d2997xig-tecnologiaxfd0b8e54bb020d267556896c8351c43e98e9e19d03a8f042f7e59ad39da7e6d7&origin=TV%20Store%202#fix"},
+	  {id: "app4", url: "https://d3u3bgui77bitj.cloudfront.net/apps/igtv/index.html?uid=c81b704850ae5065da612bc87a2aaf95fc84af5f278e23b308a4e333ec5b5069xig-receitasxfd0b8e54bb020d267556896c8351c43e98e9e19d03a8f042f7e59ad39da7e6d7&origin=TV%20Store%202#fix"}];
 	  var selected = 0;
 	  
 	  function nextApp() {
@@ -53,8 +58,16 @@
 			wv.preload = "a4tv/content.js";
 			wv.style = "position:absolute;width:100%;height:100%;"
 			wv.src = apps[selected].url;
+			
+			onStore = false;
+			
 			document.getElementById("content").innerHTML = "";
 			document.getElementById("content").appendChild(wv);
+	  }
+	  
+	  function goHome(){
+			onStore = true;
+			window.location.replace("tvapp-main.html");
 	  }
 	  
 	  function clickHandler(e){
@@ -63,14 +76,22 @@
 			 else if (evt.target) elem = evt.target;
 			 
 			 console.log('You clicked with key ' + e.keyCode +' target ' + evt.target + " content: " + JSON.stringify(e, null, 4));
-			 if (e.keyCode == 37) {
-			   previousApp();
-		   }else if (e.keyCode == 39) {
-			   nextApp();
-		   }else if(e.keyCode == 13){
-				disconnect();
-			   startApp();
-		   }
+			 if(onStore){
+				 if (e.keyCode == 37) {
+				   previousApp();
+			   }else if (e.keyCode == 39) {
+				   nextApp();
+			   }else if(e.keyCode == 13){
+				   disconnect();
+				   setTimeout(startApp, 800);
+				   
+			   }
+			 }else{
+				if (e.keyCode == 8) {
+				   disconnect();
+				   goHome();
+				}
+			 }
 			 
 			 return true;
 	  }
@@ -85,6 +106,8 @@
 		   
 	  }
 	  
+	  	
+				
 	</script>
 	
   </body>

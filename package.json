@@ -23,9 +23,9 @@
   },
   "homepage": "https://github.com/electron/electron-quick-start#readme",
   "devDependencies": {
-    "electron-prebuilt": "^1.0.1"
+    "electron-prebuilt": "^1.4.13"
   },
   "dependencies": {
-    "x-chrome-tabs": "^1.0.3"
+    "x-chrome-tabs": "^1.0.5"
   }
 }

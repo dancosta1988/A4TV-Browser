@@ -517,7 +517,7 @@ A4TV.uiRepresentation.generateUiml = function ( elems ) {
 			
             if (elems[i].hasAttribute('type')){
 				A4TV.uiRepresentation.appendUiml( "property", id, "name", "type", elems[i].getAttribute('type'), "style" );
-				if(elems[i].getAttribute('type').includes("video")){
+				if(elems[i].getAttribute('type').includes("video") || elems[i].getAttribute('id').includes("video") || elems[i].getAttribute('id').includes("video")){
 					A4TV.uiRepresentation.hasVideoPlayer = true;
 				}
 			}
@@ -579,6 +579,7 @@ A4TV.uiRepresentation.generateUiml = function ( elems ) {
 			if (elems[i].hasAttribute('id') && elems[i].getAttribute('id').search('button-prev') > -1) A4TV.uiRepresentation.appendUiml( "property", id, "name", "text", "Video Anterior", "style" );
 			if (elems[i].hasAttribute('id') && elems[i].getAttribute('id').search('button-next') > -1) A4TV.uiRepresentation.appendUiml( "property", id, "name", "text", "Video Seguinte", "style" );
 			if (elems[i].hasAttribute('id') && elems[i].getAttribute('id').search('progress-indicator') > -1) A4TV.uiRepresentation.appendUiml( "property", id, "name", "text", "Barra de Progresso", "style" );
+			if (elems[i].hasAttribute('id') && elems[i].getAttribute('id').search('button-favorite') > -1) A4TV.uiRepresentation.appendUiml( "property", id, "name", "text", "Adicionar aos favoritos", "style" );
 			
 			
 		  //var fontSize = document.defaultView.getComputedStyle(elems[i],null).getPropertyValue('font-size');
@@ -1185,17 +1186,12 @@ function sendUIML(){
 				sendMessage(str);
 			}
 			catch (e) {
-				alert (e);
+				console.log(e);
 			}
 			
 		//}, 800);
 	}
 
-}
-
-function init(){
-	connect();
-	//sendUIML();
 }
 
 var uimlStr = "";
@@ -1213,17 +1209,12 @@ document.onreadystatechange = function(e)
 			head.appendChild(script);
 						
 		}catch(e){
-			alert(e);
+			console.log(e);
 		}
     }
 };
 
-window.onload = function() {
-	
-	//alert(getDOM());
-	setTimeout(init, 1000);
- 
-};
+
 
 /*
 function clickHandler(e){
@@ -1270,99 +1261,123 @@ function segmentPage(){
 		 A4TV.setBlocksInUIML();
 		 return done;
 		}catch(e){
-			alert(e);
+			console.log(e);
 			return false;
 		}
 }
 
-var ws;
+
 const ipcRenderer = require('electron').ipcRenderer;
 
 
-function connect(){
-	if ("WebSocket" in window)
-				{
-				   //alert("WebSocket is supported by your Browser!");
-				   
-				   // Let us open a web socket
-				   //var ws = new WebSocket("ws://127.0.0.1:5000/");
-				   try{
-				   
-					  ws = new WebSocket("ws://localhost:8080/jsrA4TV");
-					  //ws = new WebSocket("ws://localhost:4445/");
-				   
-				   }catch(e){
-					   alert(e);
-				   }
-				   
-				   ws.onopen = function()
-				   {
-					  // Web Socket is connected, send data using send()
-					  console.log("Handshake was successful");
-					  
-					  /*var url = window.location.href;
-					  window.open(url, "_blank");
-					  window.open(url, "_blank");
-					  window.open(url, "_blank");
-					  window.open(url, "_blank");*/
-					  
-					  
-					  setTimeout(sendUIML, 800);					  										  
-					  
-				   };
-					
-				   ws.onmessage = function (evt) 
-				   { 
-					  if(A4TV.useBlockOMatic)
-						  A4TV.clearBlocks();
-					  var received_msg = evt.data;
-					  console.log("Message received..." + received_msg);
-					  sendlog("Message received..." + received_msg);
-					  var cmd = received_msg.split(";");
-					  var key = cmd[0].split("=");
-					  var user = cmd[1].split("=");
-					  var volume = cmd[2].split("=");
-					  var keyCode = key[1];
-					  var usertype = user[1];
-					  var volumeValue = volume[1];
-					  A4TV.userType = usertype;
-					  if(volumeValue != -1)
-						executeVolumeChange(volumeValue);
-					  
-					  if(keyCode != -1)
-						executeKeyCode({keycode: keyCode});
-					  //ws.send("Messagem de teste");
-				   };
-					
-				   ws.onclose = function()
-				   { 
-					  // websocket is closed.
-					  console.log("Connection is closed...");
-					  //ws.close();
-					  //setTimeout(connect, 2000);
-				   };
-				}
-				
-				else
-				{
-				   // The browser doesn't support WebSocket
-				   console.log("WebSocket NOT supported by your Browser!");
-				}
-}  
-  
-function sendMessage(dom){ 
- 
-		if (dom != null){
-			//sendlog(dom);
-			ws.send(dom);
-		}
-    
-}
 
-function disconnect(){
-	console.log("Connection will close");
-	ws.close();
-}
+var ws;
+
+function connect(){
+		if ("WebSocket" in window)
+					{
+					   //alert("WebSocket is supported by your Browser!");
+					   
+					   // Let us open a web socket
+					   //var ws = new WebSocket("ws://127.0.0.1:5000/");
+					   try{
+					   
+						  ws = new WebSocket("wss://localhost:4430/jsrA4TV");
+						  //ws = new WebSocket("wss://localhost:4430");
+						  //ws = new WebSocket("ws://localhost:8080/");
+					   
+					   }catch(e){
+						   console.log("Error trying to connect");
+					   }
+					   
+					   ws.onopen = function()
+					   {
+						  // Web Socket is connected, send data using send()
+						  console.log("Handshake was successful");
+						  
+						  /*var url = window.location.href;
+						  window.open(url, "_blank");
+						  window.open(url, "_blank");
+						  window.open(url, "_blank");
+						  window.open(url, "_blank");*/
+						  
+						  
+						  setTimeout(sendUIML, 800);					  										  
+						  
+					   };
+						
+					   ws.onmessage = function (evt) 
+					   { 
+						  if(A4TV.useBlockOMatic)
+							  A4TV.clearBlocks();
+						  var received_msg = evt.data;
+						  console.log("Message received..." + received_msg);
+						  sendlog("Message received..." + received_msg);
+						  var cmd = received_msg.split(";");
+						  var key = cmd[0].split("=");
+						  var user = cmd[1].split("=");
+						  var volume = cmd[2].split("=");
+						  var keyCode = key[1];
+						  var usertype = user[1];
+						  var volumeValue = volume[1];
+						  A4TV.userType = usertype;
+						  if(volumeValue != -1)
+							executeVolumeChange(volumeValue);
+						  
+						  if(keyCode != -1)
+							executeKeyCode({keycode: keyCode});
+						  //ws.send("Messagem de teste");
+					   };
+						
+					   ws.onclose = function()
+					   { 
+						  // websocket is closed.
+						  console.log("Connection is closed...");
+						  //ws.close();
+						  //setTimeout(connect, 2000);
+					   };
+					}
+					
+					else
+					{
+					   // The browser doesn't support WebSocket
+					   console.log("WebSocket NOT supported by your Browser!");
+					}
+		}  
+										
+		function init(){
+			connect();
+			//setTimeout(sendUIML, 800);
+		}
+
+		window.onload = function() {
+			sendlog("Application Loaded!");
+			//alert(getDOM());
+			setTimeout(init, 1000);
+			
+			//init();
+		 
+		};				
+		
+		function sendMessage(dom){ 
+		 
+				if (dom != null){
+					//sendlog(dom);
+					try{
+						ws.send(dom);
+					}catch(e){
+						console.log("Message not sent trying t reconnect:" + e);
+						connect();
+					}
+				}
+			
+		}
+
+		function disconnect(){
+			console.log("Connection will close");
+			ws.close();
+		}
+		
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////
