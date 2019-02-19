@@ -43,7 +43,7 @@ function createWindow () {
   })
     
   mainWindow.show();
-  mainWindow.focusOnWebView();
+  //mainWindow.focusOnWebView();
   
   
 }
@@ -75,7 +75,7 @@ app.commandLine.appendSwitch("ignore-certificate-errors");
 // code. You can also put them in separate files and require them here.
 
 ipcMain.on('sendInputKey', function (e, key) {
-	mainWindow.focusOnWebView();
+	//mainWindow.focusOnWebView();
 	var newkey ="";
 	switch(key.key){
 		case "37": newkey = "LEFT";break; //LEFT

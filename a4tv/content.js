@@ -1216,16 +1216,17 @@ document.onreadystatechange = function(e)
 
 
 
-/*
+
 function clickHandler(e){
  var elem, evt = e ? e:event;
  if (evt.srcElement)  elem = evt.srcElement;
  else if (evt.target) elem = evt.target;
  
  console.log('You clicked with key ' + e.keyCode +' target ' + evt.target + " content: " + JSON.stringify(e, null, 4));
- 
+ window.blur();
+ window.focus();
  return true;
-}*/
+}
 
 //document.onkeydown=clickHandler;
 
@@ -1308,6 +1309,7 @@ function connect(){
 						
 					   ws.onmessage = function (evt) 
 					   { 
+											   
 						  if(A4TV.useBlockOMatic)
 							  A4TV.clearBlocks();
 						  var received_msg = evt.data;
@@ -1352,6 +1354,8 @@ function connect(){
 
 		window.onload = function() {
 			sendlog("Application Loaded!");
+			window.blur();
+			window.focus();
 			//alert(getDOM());
 			setTimeout(init, 1000);
 			
