@@ -7,7 +7,7 @@
 	<script src="a4tv/content.js" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="a4tv.css">
   </head>
-  <body style="overflow:hidden;">
+  <body style="overflow:hidden;" onLoad="playSound();">
     <div id = "content">
 		<img id = "app1" src="app1.jpg" alt="Cócóricó Vídeos Infantis" width="300" height="300" class = "selected">
 		<img id = "app2" src="app2.jpeg" alt="Noticias" width="300" height="300">
@@ -105,6 +105,12 @@
 		   console.log("key na main: " + key);
 		   
 		   
+	  }
+	  
+	  function playSound(){
+		console.log("Playing sound...");
+		var audio = new Audio('a4tv/Success-sound-effect.mp3');
+		audio.play();
 	  }
 	  
 	  	
